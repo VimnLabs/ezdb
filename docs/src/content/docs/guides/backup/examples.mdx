@@ -76,11 +76,11 @@ const backup = new Backup({
 
 //@ts-expect-error
 // ---cut---
-backup.info(/* SEARCH */) // This can be the id (timesteamp) or name of the zip (for example: dpiitqkszwe4rri8).
+backup.info(/* SEARCH */) // The search can be the id (timesteamp) or name of the zip (for example: dpiitqkszwe4rri8).
 ```
 <LinkCard title="Reference" href="/ezdb/reference/classes/backup/#info" />
 ## Use a backup
-Search a backup, returns a [backup info](/ezdb/reference/type-aliases/backupinfo/) or `null`
+Searchs a backup and uses it.
 ```ts copy wrap twoslash showLineNumbers
 import { Backup } from "@vimn/ezdb"
 const backup = new Backup({
@@ -99,6 +99,6 @@ const backup = new Backup({
 
 //@ts-expect-error
 // ---cut---
-backup.use(/* SEARCH */) // This can be the id (timesteamp) or name of the zip (for example: dpiitqkszwe4rri8).
+backup.use(/* SEARCH */) // The search can be the id (timesteamp) or name of the zip (for example: dpiitqkszwe4rri8).
 ```
 <LinkCard title="Reference" href="/ezdb/reference/classes/backup/#use" />
