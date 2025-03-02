@@ -1,0 +1,46 @@
+---
+title: Setup
+description: Let's use this awesome backuper
+---
+import { FileTree, Aside } from '@astrojs/starlight/components';
+
+The use is so simple that you just have to start the class and use a function to start using the backuper.
+```ts copy wrap twoslash showLineNumbers {"Default config":5-12}
+import { Backup } from "@vimn/ezdb"
+
+// ---cut---
+const backup = new Backup({
+	backups: './backups', // Folder to save backups
+	path: './', // Path to be backed up, can be a single file or a folder
+	heartbeat: 30 * 60 * 1000, // Milliseconds between each backup, in this example it is 30 minutes.
+
+	verbose: {
+		start: true,
+		open_folder: false,
+		open_file: false,
+		end: true,
+		use: false
+	}
+});
+
+backup.begin(); // Create everything necessary and start the automatic backup process.
+```
+
+<Aside type="tip">
+The backup folder and the path to backup, are obtained from the root folder of your project,  your project root directory will be the one, in which your executed file is located, for example: `C:/Users/USER/Desktop/.../my_project/src/...`.
+</Aside>
+
+Following the above example, your files should look something like this:
+<FileTree>
+
+- package.json
+- src
+  - backups
+    - index.json
+    - ...
+
+</FileTree>
+
+<Aside type="note">
+Folders are created using the date, in the following format: MM-DD-YYY, January is 1 and December 12.
+</Aside>

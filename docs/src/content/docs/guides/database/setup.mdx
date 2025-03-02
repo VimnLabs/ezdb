@@ -1,0 +1,36 @@
+---
+title: Setup
+description: Let's use this awesome database
+---
+import { FileTree, Aside } from '@astrojs/starlight/components';
+
+The use is so simple that you just have to start the class and use a function to start using the database.
+```ts copy wrap twoslash showLineNumbers {"Optional":4-5}
+import { Database } from "@vimn/ezdb"
+
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+// ---cut---
+const database = new Database({
+	root: './database/', // Folder to create the json files that are the tables.
+	tables: ['main'], // Tables to be used
+
+	auth: AUTH_KEY // Authentication code, I recommend that it be placed in a `.env` file.
+});
+
+database.begin() // Creates all necessary files and folders
+```
+
+<Aside type="tip">
+The folder to use in the database is made on the root folder of your project, this means that if you have your main file, for example in `C:/Users/USER/Desktop/.../my_project/src/...`, your project root directory will be the one, in which your executed file is located.
+</Aside>
+
+Following the above example, your files should look something like this:
+<FileTree>
+
+- package.json
+- src
+  - database
+    - main.json
+    - ...
+
+</FileTree>

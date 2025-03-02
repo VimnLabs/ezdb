@@ -1,0 +1,51 @@
+---
+title: Why use it?
+description: Why should I use this database? Let's find out
+---
+
+import { Tabs, TabItem, Steps, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Tabs>
+  <TabItem label="Database">
+  <Steps>
+1. Built on local file storage to ensure optimal performance and straightforward data persistence.
+
+2. Essential functions for data manipulation, including `set`, `get`, and `delete`.
+
+3. High-performance numerical functions—`sum`, `sub`, `multi`, `divide`, `pow`, and `sqrt`—for precise and efficient mathematical operations.
+
+4. Dynamic array manipulation functions such as `push`, `remove`, `unshift`, `shift`, and `pop`.
+
+5. Additional utility functions designed for ease of use:  
+   - `ping` to measure latency,  
+   - `all` to retrieve the complete database,  
+   - `flat` to generate a table with flattened keys,  
+   - `sanitize` to safely access keys that contain dots in their names.
+  </Steps>
+  <CardGrid>
+    <LinkCard title="Setup" href="/ezdb/guides/database/setup" />
+    <LinkCard title="Examples" href="/ezdb/guides/database/examples" />
+  </CardGrid>
+  </TabItem>
+  <TabItem label="Backuper">
+  <Steps>
+1. Supports backing up an entire folder or a single file for flexible data protection.
+
+2. Allows customizable automatic backup frequency in milliseconds to ensure timely backups.
+
+3. Lets you choose the storage location for backups, granting full control over where data is stored.
+
+4. Provides configurable automatic console notifications, enabling you to select which events are reported.
+
+5. Maintains a record in the format `{"id": "absolute path"}`, where the ID is a string representing the timestamp in milliseconds, ensuring precise traceability.
+
+6. Offers complete backup information—including the record ID, the timestamp (using `Date`), the backup entries, and the absolute path—so you have full insight into each backup.
+
+7. Enables seamless restoration by "consuming" a backup, replacing the entire current data set with the backed-up version.
+  </Steps>
+  <CardGrid>
+    <LinkCard title="Setup" href="/ezdb/guides/backup/setup" />
+    <LinkCard title="Examples" href="/ezdb/guides/backup/examples" />
+  </CardGrid>
+  </TabItem>
+</Tabs>

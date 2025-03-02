@@ -1,0 +1,48 @@
+---
+editUrl: false
+next: false
+prev: false
+title: "BackupInfo"
+---
+
+```ts
+type BackupInfo = object;
+```
+
+Defined in: package/src/core/backup.ts:67
+
+Represents the information of a backup
+
+## Type declaration
+
+### id
+
+```ts
+id: string;
+```
+
+Id with which it appears in the registry
+
+### path
+
+```ts
+path: string;
+```
+
+Route to which the backing belongs
+
+### timestamp
+
+```ts
+timestamp: Date;
+```
+
+Exact time at which it was made
+
+### entries
+
+```ts
+entries: string[];
+```
+
+Files contained in the backup

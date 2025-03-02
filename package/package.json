@@ -1,0 +1,43 @@
+{
+  "name": "@vimn/ezdb",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.0.11",
+  "description": "An easy-to-use JSON file-based local database with a full-featured backup module.",
+  "scripts": {
+    "test": "bun ./test/index.ts",
+    "publish": "unbuild && npm publish"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "keywords": [],
+  "author": "KingsBeCattz",
+  "license": "MIT",
+  "dependencies": {
+    "@types/adm-zip": "^0.5.7",
+    "adm-zip": "^0.5.16",
+    "dot-prop": "^9.0.0",
+    "tiny-typed-emitter": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.2",
+    "@types/node": "^22.13.4",
+    "unbuild": "^3.3.1"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "esbuild"
+    ],
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

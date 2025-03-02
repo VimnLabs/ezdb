@@ -1,0 +1,24 @@
+---
+title: Installation
+description: Initial instructions
+---
+
+import { PackageManagers } from 'starlight-package-managers'
+import {
+  Steps, Tabs, TabItem, Code, Aside, Icon, Badge
+} from '@astrojs/starlight/components';
+
+## Requirements <Badge text="IMPORTANT" size="small" variant="caution" style={{ fontWeight: "bolder", textDecoration: "underline" }} />
+We recommend first of all to have installed:
+<div class="div-before-installation">
+  <Icon name="right-arrow" label=">" class="display-inline" />[<Icon name="node" class="display-inline" /> NodeJS](https://nodejs.org/) (v18 or higher)
+</div>
+<div class="div-before-installation">
+  <Icon name="right-arrow" label=">" class="display-inline" />[<Icon name="seti:typescript" class="display-inline" /> TypeScript](https://www.typescriptlang.org/) (v4.3 or higher) <Badge variant="tip" text="OPTIONAL USE"/>
+</div>
+<div class="div-before-installation">
+  <Icon name="right-arrow" label=">" class="display-inline" /> Any package manager, below are some examples
+</div>
+
+## Installation
+<PackageManagers pkg="@vimn/ezdb" pkgManagers={['npm', "pnpm", "yarn", 'bun', 'ni']} />

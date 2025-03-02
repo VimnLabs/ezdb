@@ -1,0 +1,54 @@
+---
+editUrl: false
+next: false
+prev: false
+title: "ansi"
+---
+
+```ts
+function ansi(...codes): `[${string}m`
+```
+
+Defined in: package/src/utils.ts:276
+
+Generates an ANSI escape sequence for the provided ANSI codes.
+
+This function returns a valid ANSI escape sequence that can be used
+to style text in a terminal.
+
+## Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+...`codes`
+
+</td>
+<td>
+
+[`ANSICodes`](/ezdb/reference/enumerations/ansicodes/)[]
+
+</td>
+<td>
+
+ANSI codes to include in the escape sequence.
+
+</td>
+</tr>
+</tbody>
+</table>
+
+## Returns
+
+`` `[${string}m` ``
+
+The ANSI escape sequence as a string.

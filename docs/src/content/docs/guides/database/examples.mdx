@@ -1,0 +1,389 @@
+---
+title: Database Examples
+description: Let's see some examples of the usage of the databse
+---
+import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
+
+## Before starting
+Below are several examples, in case you don't know how to start the class you can see:
+
+<CardGrid>
+<LinkCard title="Installation" href="/ezdb/guides/installation" />
+<LinkCard title="How to setup" href="/ezdb/guides/database/setup" />
+</CardGrid>
+
+## Utility functions
+### Database Ping 
+Get the ping of the database
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+database.ping()
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#ping" />
+### All database
+Gets the contents of all tables and condenses them into a single object
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+database.all(AUTH_KEY)
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#all" />
+### Sanitize string
+Example content for the “main” table
+```json title="main.json"
+{
+	"foo": {
+		"bar": "👸🏻 You found me Mario!",
+	},
+	"foo.bar" : "🍄 The princess is in another castle!",
+}
+```
+
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+// This returns "🍄 The princess is in another castle!"
+database.get({
+  table: "main",
+  key: database.sanitize("foo.bar"),
+  auth: AUTH_KEY
+})
+
+// This returns "👸🏻 You found me Mario!"
+database.get({
+  table: "main",
+  key: "foo.bar",
+  auth: AUTH_KEY
+})
+```
+Example extracted from [Dot-Prop](https://www.npmjs.com/package/dot-prop?activeTab=readme#escapepathpath)
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#sanitize" />
+
+## Basic usages
+### Get function
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+// Get an entire table
+database.get({
+  table: "main",
+  auth: AUTH_KEY
+})
+// Get a specific value of a key in the table, or get the entire table
+database.get({
+  table: "main",
+  key: "foo",
+  auth: AUTH_KEY
+})
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#get" />
+### Set function
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+// Overwrite a table completely
+database.set({
+  table: "main",
+  auth: AUTH_KEY,
+  value: {foo: "bar"}
+})
+// Writes a specific property
+database.set({
+  table: "main",
+  key: "foo",
+  value: "bar",
+  auth: AUTH_KEY
+})
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#set" />
+### Delete function
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+// Deletes a table completely
+database.delete({
+  table: "main",
+  auth: AUTH_KEY,
+})
+//Deletes a specific property
+database.delete({
+  table: "main",
+  key: "foo",
+  auth: AUTH_KEY
+})
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#delete" />
+
+## Number Oriented
+### Sum function
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+database.sum({
+  table: "main",
+  key: "foo",
+  value: 2, //THIS SHOULD ALWAYS BE A NUMBER
+  auth: AUTH_KEY
+})
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#sum" />
+### Sub function
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+database.sub({
+  table: "main",
+  key: "foo",
+  value: 2, //THIS SHOULD ALWAYS BE A NUMBER
+  auth: AUTH_KEY
+})
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#sub" />
+### Multi function
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+database.multi({
+  table: "main",
+  key: "foo",
+  value: 2, //THIS SHOULD ALWAYS BE A NUMBER
+  auth: AUTH_KEY
+})
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#multi" />
+
+<Aside type="note">
+The value given will be the number to multiply the one already in the table, for example, if foo is worth 2, and in value we give it 2, it would be 2 times 2, then it would be overwritten as 4.
+</Aside>
+
+### Divide function
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+database.divide({
+  table: "main",
+  key: "foo",
+  value: 2, //THIS SHOULD ALWAYS BE A NUMBER
+  auth: AUTH_KEY
+})
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#divide" />
+
+<Aside type="note">
+The value given will be the number to which the number already in the table will be divided, for example, if foo is 2, and in value we give it 2, it would be 2 divided by 2, then it would be overwritten as 4.
+</Aside>
+
+### Pow function
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+database.pow({
+  table: "main",
+  key: "foo",
+  value: 2, //THIS SHOULD ALWAYS BE A NUMBER
+  auth: AUTH_KEY
+})
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#pow" />
+
+<Aside type="note">
+The value given will be the number to which the one already in the table will be raised, for example, if foo is worth 2, and in value we give 2, it would be 2 raised to 2, then it would be overwritten as 4.
+</Aside>
+
+### Sqrt function
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+database.sqrt({
+  table: "main",
+  key: "foo",
+  value: 2, //THIS SHOULD ALWAYS BE A NUMBER
+  auth: AUTH_KEY
+})
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#sqrt" />
+
+<Aside type="note">
+The value given will be the number to which the one already in the table will be raised, for example, if foo is worth 2, and in value we give 2, it would be 2 raised to 2, then it would be overwritten as 4.
+</Aside>
+
+
+## Array Oriented
+### Push function
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+database.push({
+  table: "main",
+  key: "foo",
+  value: "bar",
+  auth: AUTH_KEY
+})
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#push" />
+### Remove function
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+database.remove({
+  table: "main",
+  key: "foo",
+  value: "bar",
+  auth: AUTH_KEY
+})
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#remove" />
+### Unshift function
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+database.unshift({
+  table: "main",
+  key: "foo",
+  value: "bar",
+  auth: AUTH_KEY
+})
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#unshift" />
+### Shift function
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+database.shift({
+  table: "main",
+  key: "foo",
+  auth: AUTH_KEY
+})
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#shift" />
+### Pop function
+```ts copy wrap twoslash showLineNumbers
+import { Database } from "@vimn/ezdb"
+const AUTH_KEY = process.env.DATABASE_AUTH as string
+const database = new Database({
+	root: './database/',
+	tables: ['main'],
+
+	auth: AUTH_KEY
+});
+// ---cut---
+database.pop({
+  table: "main",
+  key: "foo",
+  auth: AUTH_KEY
+})
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/database/#pop" />

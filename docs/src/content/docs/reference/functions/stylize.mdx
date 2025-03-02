@@ -1,0 +1,71 @@
+---
+editUrl: false
+next: false
+prev: false
+title: "stylize"
+---
+
+```ts
+function stylize(input, ...codes): string
+```
+
+Defined in: package/src/utils.ts:238
+
+Stylizes the given string by applying the specified ANSI codes.
+
+The function resets specific styles automatically, such as text color, background color,
+or other text formatting, based on the provided ANSI codes.
+
+## Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`input`
+
+</td>
+<td>
+
+`string`
+
+</td>
+<td>
+
+The string to be stylized.
+
+</td>
+</tr>
+<tr>
+<td>
+
+...`codes`
+
+</td>
+<td>
+
+[`ANSICodes`](/ezdb/reference/enumerations/ansicodes/)[]
+
+</td>
+<td>
+
+ANSI codes to apply to the string.
+
+</td>
+</tr>
+</tbody>
+</table>
+
+## Returns
+
+`string`
+
+The stylized string with the applied ANSI codes.

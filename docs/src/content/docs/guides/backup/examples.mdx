@@ -1,0 +1,104 @@
+---
+title: Backup Examples
+description: Let's see some examples of the usage of the backuper
+---
+import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
+
+## Before starting
+Below are several examples, in case you don't know how to start the class you can see:
+
+<CardGrid>
+<LinkCard title="Installation" href="/ezdb/guides/installation" />
+<LinkCard title="How to setup" href="/ezdb/guides/backup/setup" />
+</CardGrid>
+
+## Get the registry
+Get the log contents of your backups, they come from the `index.json` from where you set the folder to store your backups.
+```ts copy wrap twoslash showLineNumbers
+import { Backup } from "@vimn/ezdb"
+const backup = new Backup({
+	backups: './backups', // Folder to save backups
+	path: './', // Path to be backed up, can be a single file or a folder
+	heartbeat: 30 * 60 * 1000, // Milliseconds between each backup, in this example it is 30 minutes.
+
+	verbose: {
+		start: true,
+		open_folder: false,
+		open_file: false,
+		end: true,
+		use: false
+	}
+});
+// ---cut---
+backup.registry
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/backup/#registry" />
+
+## Create a backup
+Creates a backup, returns a Promise of the [backup info](/ezdb/reference/type-aliases/backupinfo/)
+```ts copy wrap twoslash showLineNumbers
+import { Backup } from "@vimn/ezdb"
+const backup = new Backup({
+	backups: './backups', // Folder to save backups
+	path: './', // Path to be backed up, can be a single file or a folder
+	heartbeat: 30 * 60 * 1000, // Milliseconds between each backup, in this example it is 30 minutes.
+
+	verbose: {
+		start: true,
+		open_folder: false,
+		open_file: false,
+		end: true,
+		use: false
+	}
+});
+// ---cut---
+backup.create()
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/backup/#create" />
+
+## Get a backup
+Search a backup, returns a [backup info](/ezdb/reference/type-aliases/backupinfo/) or `null`
+```ts copy wrap twoslash showLineNumbers
+import { Backup } from "@vimn/ezdb"
+const backup = new Backup({
+	backups: './backups', // Folder to save backups
+	path: './', // Path to be backed up, can be a single file or a folder
+	heartbeat: 30 * 60 * 1000, // Milliseconds between each backup, in this example it is 30 minutes.
+
+	verbose: {
+		start: true,
+		open_folder: false,
+		open_file: false,
+		end: true,
+		use: false
+	}
+});
+
+//@ts-expect-error
+// ---cut---
+backup.info(/* SEARCH */) // This can be the id (timesteamp) or name of the zip (for example: dpiitqkszwe4rri8).
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/backup/#info" />
+## Use a backup
+Search a backup, returns a [backup info](/ezdb/reference/type-aliases/backupinfo/) or `null`
+```ts copy wrap twoslash showLineNumbers
+import { Backup } from "@vimn/ezdb"
+const backup = new Backup({
+	backups: './backups', // Folder to save backups
+	path: './', // Path to be backed up, can be a single file or a folder
+	heartbeat: 30 * 60 * 1000, // Milliseconds between each backup, in this example it is 30 minutes.
+
+	verbose: {
+		start: true,
+		open_folder: false,
+		open_file: false,
+		end: true,
+		use: false
+	}
+});
+
+//@ts-expect-error
+// ---cut---
+backup.use(/* SEARCH */) // This can be the id (timesteamp) or name of the zip (for example: dpiitqkszwe4rri8).
+```
+<LinkCard title="Reference" href="/ezdb/reference/classes/backup/#use" />

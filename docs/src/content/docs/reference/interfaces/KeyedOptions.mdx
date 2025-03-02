@@ -1,0 +1,81 @@
+---
+editUrl: false
+next: false
+prev: false
+title: "KeyedOptions"
+---
+
+Defined in: package/src/core/database.ts:50
+
+Represents options with a key
+
+## Extends
+
+- [`SimpleOptions`](/ezdb/reference/interfaces/simpleoptions/)\<`T`\>
+
+## Extended by
+
+- [`KeyedValuedOptions`](/ezdb/reference/interfaces/keyedvaluedoptions/)
+
+## Type Parameters
+
+<table>
+<thead>
+<tr>
+<th>Type Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`T` *extends* `string`
+
+</td>
+</tr>
+</tbody>
+</table>
+
+## Properties
+
+### table
+
+```ts
+table: T;
+```
+
+Defined in: package/src/core/database.ts:44
+
+Table to use
+
+#### Inherited from
+
+[`SimpleOptions`](/ezdb/reference/interfaces/simpleoptions/).[`table`](/ezdb/reference/interfaces/simpleoptions/#table)
+
+***
+
+### auth?
+
+```ts
+optional auth: string;
+```
+
+Defined in: package/src/core/database.ts:46
+
+Authentication key
+
+#### Inherited from
+
+[`SimpleOptions`](/ezdb/reference/interfaces/simpleoptions/).[`auth`](/ezdb/reference/interfaces/simpleoptions/#auth)
+
+***
+
+### key
+
+```ts
+key: string;
+```
+
+Defined in: package/src/core/database.ts:52
+
+Dot path key inside a table

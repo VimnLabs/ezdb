@@ -1,0 +1,1203 @@
+---
+editUrl: false
+next: false
+prev: false
+title: "Backup"
+---
+
+Defined in: package/src/core/backup.ts:79
+
+Create an new backup instance
+
+## Extends
+
+- `TypedEmitter`\<[`BackupEvents`](/ezdb/reference/interfaces/backupevents/)\>
+
+## Constructors
+
+### new Backup()
+
+```ts
+new Backup(__namedParameters): Backup
+```
+
+Defined in: package/src/core/backup.ts:88
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`__namedParameters`
+
+</td>
+<td>
+
+[`BackupOptions`](/ezdb/reference/interfaces/backupoptions/)
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+[`Backup`](/ezdb/reference/classes/backup/)
+
+#### Overrides
+
+```ts
+TypedEmitter<BackupEvents>.constructor
+```
+
+## Properties
+
+### defaultMaxListeners
+
+```ts
+static defaultMaxListeners: number;
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:10
+
+#### Inherited from
+
+```ts
+TypedEmitter.defaultMaxListeners
+```
+
+***
+
+### backups
+
+```ts
+backups: string;
+```
+
+Defined in: package/src/core/backup.ts:81
+
+Folder to save any backup
+
+***
+
+### path
+
+```ts
+path: string;
+```
+
+Defined in: package/src/core/backup.ts:83
+
+Folder or file to backup
+
+***
+
+### heartbeat
+
+```ts
+heartbeat: number;
+```
+
+Defined in: package/src/core/backup.ts:85
+
+Heartbeat or interval in miliseconds to backup
+
+***
+
+### verbose
+
+```ts
+verbose: VerboseOptions;
+```
+
+Defined in: package/src/core/backup.ts:87
+
+Select whether you prefer to be notified of any process. Default: Only the start and end are notified
+
+## Accessors
+
+### registry
+
+#### Get Signature
+
+```ts
+get registry(): Record<string, string>
+```
+
+Defined in: package/src/core/backup.ts:100
+
+Get the registry of any backup
+
+##### Returns
+
+`Record`\<`string`, `string`\>
+
+## Methods
+
+### addListener()
+
+```ts
+addListener<U>(event, listener): this
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:11
+
+#### Type Parameters
+
+<table>
+<thead>
+<tr>
+<th>Type Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`U` *extends* keyof [`BackupEvents`](/ezdb/reference/interfaces/backupevents/)
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`event`
+
+</td>
+<td>
+
+`U`
+
+</td>
+</tr>
+<tr>
+<td>
+
+`listener`
+
+</td>
+<td>
+
+[`BackupEvents`](/ezdb/reference/interfaces/backupevents/)\[`U`\]
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+```ts
+TypedEmitter.addListener
+```
+
+***
+
+### prependListener()
+
+```ts
+prependListener<U>(event, listener): this
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:12
+
+#### Type Parameters
+
+<table>
+<thead>
+<tr>
+<th>Type Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`U` *extends* keyof [`BackupEvents`](/ezdb/reference/interfaces/backupevents/)
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`event`
+
+</td>
+<td>
+
+`U`
+
+</td>
+</tr>
+<tr>
+<td>
+
+`listener`
+
+</td>
+<td>
+
+[`BackupEvents`](/ezdb/reference/interfaces/backupevents/)\[`U`\]
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+```ts
+TypedEmitter.prependListener
+```
+
+***
+
+### prependOnceListener()
+
+```ts
+prependOnceListener<U>(event, listener): this
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:13
+
+#### Type Parameters
+
+<table>
+<thead>
+<tr>
+<th>Type Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`U` *extends* keyof [`BackupEvents`](/ezdb/reference/interfaces/backupevents/)
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`event`
+
+</td>
+<td>
+
+`U`
+
+</td>
+</tr>
+<tr>
+<td>
+
+`listener`
+
+</td>
+<td>
+
+[`BackupEvents`](/ezdb/reference/interfaces/backupevents/)\[`U`\]
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+```ts
+TypedEmitter.prependOnceListener
+```
+
+***
+
+### removeListener()
+
+```ts
+removeListener<U>(event, listener): this
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:14
+
+#### Type Parameters
+
+<table>
+<thead>
+<tr>
+<th>Type Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`U` *extends* keyof [`BackupEvents`](/ezdb/reference/interfaces/backupevents/)
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`event`
+
+</td>
+<td>
+
+`U`
+
+</td>
+</tr>
+<tr>
+<td>
+
+`listener`
+
+</td>
+<td>
+
+[`BackupEvents`](/ezdb/reference/interfaces/backupevents/)\[`U`\]
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+```ts
+TypedEmitter.removeListener
+```
+
+***
+
+### removeAllListeners()
+
+```ts
+removeAllListeners(event?): this
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:15
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`event`?
+
+</td>
+<td>
+
+keyof BackupEvents
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+```ts
+TypedEmitter.removeAllListeners
+```
+
+***
+
+### once()
+
+```ts
+once<U>(event, listener): this
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:16
+
+#### Type Parameters
+
+<table>
+<thead>
+<tr>
+<th>Type Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`U` *extends* keyof [`BackupEvents`](/ezdb/reference/interfaces/backupevents/)
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`event`
+
+</td>
+<td>
+
+`U`
+
+</td>
+</tr>
+<tr>
+<td>
+
+`listener`
+
+</td>
+<td>
+
+[`BackupEvents`](/ezdb/reference/interfaces/backupevents/)\[`U`\]
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+```ts
+TypedEmitter.once
+```
+
+***
+
+### on()
+
+```ts
+on<U>(event, listener): this
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:17
+
+#### Type Parameters
+
+<table>
+<thead>
+<tr>
+<th>Type Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`U` *extends* keyof [`BackupEvents`](/ezdb/reference/interfaces/backupevents/)
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`event`
+
+</td>
+<td>
+
+`U`
+
+</td>
+</tr>
+<tr>
+<td>
+
+`listener`
+
+</td>
+<td>
+
+[`BackupEvents`](/ezdb/reference/interfaces/backupevents/)\[`U`\]
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+```ts
+TypedEmitter.on
+```
+
+***
+
+### off()
+
+```ts
+off<U>(event, listener): this
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:18
+
+#### Type Parameters
+
+<table>
+<thead>
+<tr>
+<th>Type Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`U` *extends* keyof [`BackupEvents`](/ezdb/reference/interfaces/backupevents/)
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`event`
+
+</td>
+<td>
+
+`U`
+
+</td>
+</tr>
+<tr>
+<td>
+
+`listener`
+
+</td>
+<td>
+
+[`BackupEvents`](/ezdb/reference/interfaces/backupevents/)\[`U`\]
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+```ts
+TypedEmitter.off
+```
+
+***
+
+### emit()
+
+```ts
+emit<U>(event, ...args): boolean
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:19
+
+#### Type Parameters
+
+<table>
+<thead>
+<tr>
+<th>Type Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`U` *extends* keyof [`BackupEvents`](/ezdb/reference/interfaces/backupevents/)
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`event`
+
+</td>
+<td>
+
+`U`
+
+</td>
+</tr>
+<tr>
+<td>
+
+...`args`
+
+</td>
+<td>
+
+`Parameters`\<[`BackupEvents`](/ezdb/reference/interfaces/backupevents/)\[`U`\]\>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+```ts
+TypedEmitter.emit
+```
+
+***
+
+### eventNames()
+
+```ts
+eventNames<U>(): U[]
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:20
+
+#### Type Parameters
+
+<table>
+<thead>
+<tr>
+<th>Type Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`U` *extends* keyof [`BackupEvents`](/ezdb/reference/interfaces/backupevents/)
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`U`[]
+
+#### Inherited from
+
+```ts
+TypedEmitter.eventNames
+```
+
+***
+
+### listenerCount()
+
+```ts
+listenerCount(type): number
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:21
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`type`
+
+</td>
+<td>
+
+keyof [`BackupEvents`](/ezdb/reference/interfaces/backupevents/)
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`number`
+
+#### Inherited from
+
+```ts
+TypedEmitter.listenerCount
+```
+
+***
+
+### listeners()
+
+```ts
+listeners<U>(type): BackupEvents[U][]
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:22
+
+#### Type Parameters
+
+<table>
+<thead>
+<tr>
+<th>Type Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`U` *extends* keyof [`BackupEvents`](/ezdb/reference/interfaces/backupevents/)
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`type`
+
+</td>
+<td>
+
+`U`
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+[`BackupEvents`](/ezdb/reference/interfaces/backupevents/)\[`U`\][]
+
+#### Inherited from
+
+```ts
+TypedEmitter.listeners
+```
+
+***
+
+### rawListeners()
+
+```ts
+rawListeners<U>(type): BackupEvents[U][]
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:23
+
+#### Type Parameters
+
+<table>
+<thead>
+<tr>
+<th>Type Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`U` *extends* keyof [`BackupEvents`](/ezdb/reference/interfaces/backupevents/)
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`type`
+
+</td>
+<td>
+
+`U`
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+[`BackupEvents`](/ezdb/reference/interfaces/backupevents/)\[`U`\][]
+
+#### Inherited from
+
+```ts
+TypedEmitter.rawListeners
+```
+
+***
+
+### getMaxListeners()
+
+```ts
+getMaxListeners(): number
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:24
+
+#### Returns
+
+`number`
+
+#### Inherited from
+
+```ts
+TypedEmitter.getMaxListeners
+```
+
+***
+
+### setMaxListeners()
+
+```ts
+setMaxListeners(n): this
+```
+
+Defined in: package/node\_modules/.pnpm/tiny-typed-emitter@2.1.0/node\_modules/tiny-typed-emitter/lib/index.d.ts:25
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`n`
+
+</td>
+<td>
+
+`number`
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+```ts
+TypedEmitter.setMaxListeners
+```
+
+***
+
+### begin()
+
+```ts
+begin(): Promise<unknown>
+```
+
+Defined in: package/src/core/backup.ts:139
+
+Start the automatic backup system and create all necessary files and folders.
+
+#### Returns
+
+`Promise`\<`unknown`\>
+
+***
+
+### create()
+
+```ts
+create(): Promise<BackupInfo>
+```
+
+Defined in: package/src/core/backup.ts:175
+
+Creates a backup
+
+#### Returns
+
+`Promise`\<[`BackupInfo`](/ezdb/reference/type-aliases/backupinfo/)\>
+
+Return of the absolute backing path
+
+***
+
+### info()
+
+```ts
+info(search): null | BackupInfo
+```
+
+Defined in: package/src/core/backup.ts:259
+
+Get all the information from a backup
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`search`
+
+</td>
+<td>
+
+`string`
+
+</td>
+<td>
+
+String to use as a search string
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`null` \| [`BackupInfo`](/ezdb/reference/type-aliases/backupinfo/)
+
+***
+
+### use()
+
+```ts
+use(id): Promise<true>
+```
+
+Defined in: package/src/core/backup.ts:299
+
+This can be either the timestamp or the zip name.
+
+If the timestamp is given, the direct path will be obtained from the registry, otherwise it will be used by searching inside the registry for a timestamp that has that backup.
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`id`
+
+</td>
+<td>
+
+`string`
+
+</td>
+<td>
+
+Timestamp or id to search
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`Promise`\<`true`\>
+
+Return `true` if everything went well, otherwise any errors will be logged and reissued.

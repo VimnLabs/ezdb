@@ -1,0 +1,475 @@
+---
+editUrl: false
+next: false
+prev: false
+title: "Loggable"
+---
+
+Defined in: package/src/utils.ts:150
+
+Provides a lightweight, extensible logging mechanism with customizable formatting.
+
+The `Loggable` class is designed to be extended and used for temporary logging purposes,
+avoiding the memory overhead of persistent logger instances. Each instance is created
+when needed and goes out of scope once used, improving performance.
+
+(Class unmodified except for five original source functions).
+
+## Constructors
+
+### new Loggable()
+
+```ts
+new Loggable(PACKAGE): Loggable
+```
+
+Defined in: package/src/utils.ts:151
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`PACKAGE`
+
+</td>
+<td>
+
+`string`
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+[`Loggable`](/ezdb/reference/classes/loggable/)
+
+## Properties
+
+### PACKAGE
+
+```ts
+PACKAGE: string;
+```
+
+Defined in: package/src/utils.ts:151
+
+## Methods
+
+### note()
+
+```ts
+note(header, ...messages): void
+```
+
+Defined in: package/src/utils.ts:153
+
+Logs the message to the console as a standard note.
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`header`
+
+</td>
+<td>
+
+`string`
+
+</td>
+</tr>
+<tr>
+<td>
+
+...`messages`
+
+</td>
+<td>
+
+`string`[]
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`void`
+
+***
+
+### trace()
+
+```ts
+trace(header, ...messages): void
+```
+
+Defined in: package/src/utils.ts:158
+
+Logs the message to the console with a debug level.
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`header`
+
+</td>
+<td>
+
+`string`
+
+</td>
+</tr>
+<tr>
+<td>
+
+...`messages`
+
+</td>
+<td>
+
+`string`[]
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`void`
+
+***
+
+### warn()
+
+```ts
+warn(header, ...messages): void
+```
+
+Defined in: package/src/utils.ts:165
+
+Logs the message to the console as a warning.
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`header`
+
+</td>
+<td>
+
+`string`
+
+</td>
+</tr>
+<tr>
+<td>
+
+...`messages`
+
+</td>
+<td>
+
+`string`[]
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`void`
+
+***
+
+### panic()
+
+```ts
+panic(header, ...messages): void
+```
+
+Defined in: package/src/utils.ts:170
+
+Logs the message to the console as an error.
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`header`
+
+</td>
+<td>
+
+`string`
+
+</td>
+</tr>
+<tr>
+<td>
+
+...`messages`
+
+</td>
+<td>
+
+`string`[]
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`void`
+
+***
+
+### format()
+
+```ts
+format(
+   header, 
+   level, 
+   codes, ...
+   message): string
+```
+
+Defined in: package/src/utils.ts:184
+
+Formats the log into a styled string suitable for console output.
+
+The format includes the log header, timestamp, and a separator.
+
+Modified to give the ansi codes of the background
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`header`
+
+</td>
+<td>
+
+`string`
+
+</td>
+<td>
+
+&hyphen;
+
+</td>
+</tr>
+<tr>
+<td>
+
+`level`
+
+</td>
+<td>
+
+`string`
+
+</td>
+<td>
+
+&hyphen;
+
+</td>
+</tr>
+<tr>
+<td>
+
+`codes`
+
+</td>
+<td>
+
+[`ANSICodes`](/ezdb/reference/enumerations/ansicodes/)[]
+
+</td>
+<td>
+
+Ansi codes for styling
+
+</td>
+</tr>
+<tr>
+<td>
+
+...`message`
+
+</td>
+<td>
+
+`string`[]
+
+</td>
+<td>
+
+&hyphen;
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`string`
+
+A formatted log string
+
+***
+
+### formatLines()
+
+```ts
+formatLines(lines): string
+```
+
+Defined in: package/src/utils.ts:209
+
+Formats the individual lines of the log with a consistent style.
+
+Each line is prefixed with a vertical bar (`|`) for clarity.
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`lines`
+
+</td>
+<td>
+
+`string`[]
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`string`
+
+A formatted string containing all log lines
+
+***
+
+### toError()
+
+```ts
+toError(lines): Error
+```
+
+Defined in: package/src/utils.ts:223
+
+Converts the log entry into an `Error` object.
+
+The resulting `Error` will contain the concatenated lines of the log as its message.
+
+#### Parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`lines`
+
+</td>
+<td>
+
+`string`[]
+
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Returns
+
+`Error`
+
+An `Error` object representing the log entry

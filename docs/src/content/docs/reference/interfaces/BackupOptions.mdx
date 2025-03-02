@@ -1,0 +1,58 @@
+---
+editUrl: false
+next: false
+prev: false
+title: "BackupOptions"
+---
+
+Defined in: package/src/core/backup.ts:55
+
+Represents the options of the backup
+
+## Properties
+
+### backups
+
+```ts
+backups: string;
+```
+
+Defined in: package/src/core/backup.ts:57
+
+Folder to save any backup
+
+***
+
+### path
+
+```ts
+path: string;
+```
+
+Defined in: package/src/core/backup.ts:59
+
+Folder or file to backup
+
+***
+
+### heartbeat
+
+```ts
+heartbeat: number;
+```
+
+Defined in: package/src/core/backup.ts:61
+
+Heartbeat or interval in miliseconds to backup
+
+***
+
+### verbose?
+
+```ts
+optional verbose: null | VerboseOptions;
+```
+
+Defined in: package/src/core/backup.ts:63
+
+Select whether you prefer to be notified of any process. Default: Only the start and end are notified

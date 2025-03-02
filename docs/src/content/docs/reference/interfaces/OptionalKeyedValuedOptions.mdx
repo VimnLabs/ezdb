@@ -1,0 +1,100 @@
+---
+editUrl: false
+next: false
+prev: false
+title: "OptionalKeyedValuedOptions"
+---
+
+Defined in: package/src/core/database.ts:70
+
+Represents options with a key and value to be set
+
+## Extends
+
+- [`OptionalKeyedOptions`](/ezdb/reference/interfaces/optionalkeyedoptions/)\<`T`\>
+
+## Type Parameters
+
+<table>
+<thead>
+<tr>
+<th>Type Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`T` *extends* `string`
+
+</td>
+</tr>
+<tr>
+<td>
+
+`V` *extends* [`JSONValues`](/ezdb/reference/type-aliases/jsonvalues/)
+
+</td>
+</tr>
+</tbody>
+</table>
+
+## Properties
+
+### table
+
+```ts
+table: T;
+```
+
+Defined in: package/src/core/database.ts:44
+
+Table to use
+
+#### Inherited from
+
+[`OptionalKeyedOptions`](/ezdb/reference/interfaces/optionalkeyedoptions/).[`table`](/ezdb/reference/interfaces/optionalkeyedoptions/#table)
+
+***
+
+### auth?
+
+```ts
+optional auth: string;
+```
+
+Defined in: package/src/core/database.ts:46
+
+Authentication key
+
+#### Inherited from
+
+[`OptionalKeyedOptions`](/ezdb/reference/interfaces/optionalkeyedoptions/).[`auth`](/ezdb/reference/interfaces/optionalkeyedoptions/#auth)
+
+***
+
+### key?
+
+```ts
+optional key: string;
+```
+
+Defined in: package/src/core/database.ts:59
+
+Dot path key inside a table
+
+#### Inherited from
+
+[`OptionalKeyedOptions`](/ezdb/reference/interfaces/optionalkeyedoptions/).[`key`](/ezdb/reference/interfaces/optionalkeyedoptions/#key)
+
+***
+
+### value
+
+```ts
+value: V;
+```
+
+Defined in: package/src/core/database.ts:75
+
+Value to be established
