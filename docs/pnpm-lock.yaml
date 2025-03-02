@@ -26,6 +26,9 @@ importers:
       sharp:
         specifier: ^0.32.5
         version: 0.32.6
+      starlight-package-managers:
+        specifier: ^0.10.0
+        version: 0.10.0(@astrojs/starlight@0.32.1(astro@5.3.0(@types/node@22.13.5)(rollup@4.34.8)(typescript@5.7.3)(yaml@2.7.0)))
       starlight-sidebar-topics:
         specifier: ^0.4.1
         version: 0.4.1(@astrojs/starlight@0.32.1(astro@5.3.0(@types/node@22.13.5)(rollup@4.34.8)(typescript@5.7.3)(yaml@2.7.0)))
@@ -1729,6 +1732,12 @@ packages:
 
   sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
+
+  starlight-package-managers@0.10.0:
+    resolution: {integrity: sha512-ndliTHXzaCIQ2FFnq5KIH5Uhs9FCACeS3XQMtx/35aSPXzeGsoGxBNreC1zBif4yzGZRCJN3kXBqjUO82WDtcA==}
+    engines: {node: '>=18.17.1'}
+    peerDependencies:
+      '@astrojs/starlight': '>=0.22.0'
 
   starlight-sidebar-topics@0.4.1:
     resolution: {integrity: sha512-fzYVgccxUDBjdxgGXPDQzNI/GghEMhcdaxlDkkOFXzKvZQVX71/LAB/ZffGAB+EKkS3n9bF5YggYYBMuO6wKAw==}
@@ -4389,6 +4398,10 @@ snapshots:
   space-separated-tokens@2.0.2: {}
 
   sprintf-js@1.0.3: {}
+
+  starlight-package-managers@0.10.0(@astrojs/starlight@0.32.1(astro@5.3.0(@types/node@22.13.5)(rollup@4.34.8)(typescript@5.7.3)(yaml@2.7.0))):
+    dependencies:
+      '@astrojs/starlight': 0.32.1(astro@5.3.0(@types/node@22.13.5)(rollup@4.34.8)(typescript@5.7.3)(yaml@2.7.0))
 
   starlight-sidebar-topics@0.4.1(@astrojs/starlight@0.32.1(astro@5.3.0(@types/node@22.13.5)(rollup@4.34.8)(typescript@5.7.3)(yaml@2.7.0))):
     dependencies:
