@@ -3,8 +3,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.0.0",
-  "description": "An easy-to-use JSON file-based local database with a full-featured backup module.",
+  "version": "2.0.01",
+  "description": "An easy-to-use JSON file-based synchronous local database.",
   "scripts": {
     "test": "bun ./test/index.ts",
     "publish": "unbuild && npm publish",
