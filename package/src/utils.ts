@@ -277,5 +277,4 @@ export function ansi(...codes: ANSICodes[]): `\u001B[${string}m` {
 	return `\x1b[${codes.join(';')}m` as const;
 }
 
-export const LogEzDB = new Loggable('EzDB');
-export const LogBackup = new Loggable('Backuper');
+export const Log = new Loggable('EzDB');

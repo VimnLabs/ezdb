@@ -16,11 +16,11 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ERROR_HEADERS, ERROR_MESSAGES, KEYWORDS } from './constants';
 import type { JSObjectN } from './types';
-import { FillString, LogEzDB } from './utils';
+import { FillString, Log } from './utils';
 
 export function AuthChecker<T>(auth1?: T, auth2?: T) {
 	if (auth1 && auth1 !== auth2) {
-		LogEzDB.panic(ERROR_HEADERS.UNAUTHORIZED, ERROR_MESSAGES.UNAUTHORIZED);
+		Log.panic(ERROR_HEADERS.UNAUTHORIZED, ERROR_MESSAGES.UNAUTHORIZED);
 		throw new Error(ERROR_MESSAGES.UNAUTHORIZED);
 	}
 }
@@ -33,17 +33,9 @@ export function FileChecker(path: string) {
 				[KEYWORDS.FILE]: path
 			}
 		});
-		LogEzDB.panic(ERROR_HEADERS.INVALID_FILE, MESSAGE);
+		Log.panic(ERROR_HEADERS.INVALID_FILE, MESSAGE);
 		throw new Error(MESSAGE);
 	}
-}
-
-export function ID(timestamp: number) {
-	return (timestamp ** 2).toString(36);
-}
-
-export function ParseID(id: string) {
-	return Math.round(Number.parseInt(id, 36) ** (1 / 2));
 }
 
 export function GetTable({
@@ -64,7 +56,7 @@ export function IsSameType(value: unknown, expected: unknown) {
 			[KEYWORDS.EXPECTED]: typeof expected
 		}
 	});
-	LogEzDB.panic(ERROR_HEADERS.INVALID_TYPE, MESSAGE);
+	Log.panic(ERROR_HEADERS.INVALID_TYPE, MESSAGE);
 	throw new TypeError(MESSAGE);
 }
 
